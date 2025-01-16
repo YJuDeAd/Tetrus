@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #181424;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.player {
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+}
+
+.holdBox {
+    background: rgba(0, 0, 0, .35);
+    border-radius: 10px;
+    border: 0.1px solid #FFFFFF;
+    height: 160px;
+    width: 138px;
+}
+
+.playField {
+    background: rgba(0, 0, 0, .35);
+    border-radius: 10px;
+    border: 0.1px solid #FFFFFF;
+    height: 800px;
+    width: 400px;
+    display: grid;
+    grid-template-columns: repeat(10, 40px);
+    grid-template-rows: repeat(20, 40px);
+}
+
+.grid-cell {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.attackMeter {
+    background: rgba(0, 0, 0, .35);
+    border-radius: 10px;
+    border: 0.1px solid #FFFFFF;
+    height: 800px;
+    width: 40px;
+}
+
+.nextBox {
+    background: rgba(0, 0, 0, .35);
+    border-radius: 10px;
+    border: 0.1px solid #FFFFFF;
+    height: 400px;
+    width: 138px;
+}
+
+.section-label {
+    height: 40px;
+    width: 136px;
+    font-size: 24px;
+    background-color: #000000;
+    color: #FFFFFF;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
