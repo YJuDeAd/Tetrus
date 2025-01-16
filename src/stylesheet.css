@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
 }
 
 body {
@@ -16,44 +16,85 @@ body {
 .player {
     display: flex;
     gap: 30px;
-    padding: 20px;
+    padding: 10px;
 }
 
 .holdBox {
+    display: flex;
     background: rgba(0, 0, 0, .35);
     border-radius: 10px;
-    border: 0.1px solid #FFFFFF;
+    border: 2px solid #FFFFFF;
     height: 160px;
     width: 138px;
 }
 
+/* .playField{
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: -1;
+    background-color: black;
+    height: 740px;
+    width: 370px;
+    border-radius: 10px;
+    padding: 2px;
+}
+
+.grid-cell {
+    display: flex;
+    z-index: 1;
+    height: 30px;
+    width: 30px;
+    border: 1.5px solid white;
+    background-color: black;
+    border-radius: 5px;
+    margin : 2px;
+} */
+
 .playField {
     background: rgba(0, 0, 0, .35);
     border-radius: 10px;
-    border: 0.1px solid #FFFFFF;
-    height: 800px;
-    width: 400px;
+    border: 2px solid #FFFFFF;
+    height: 740px;
+    width: 370px;
     display: grid;
-    grid-template-columns: repeat(10, 40px);
-    grid-template-rows: repeat(20, 40px);
+    justify-content: center;
+    grid-template-columns: repeat(10, 37px);
+    grid-template-rows: repeat(20, 37px);
 }
 
 .grid-cell {
     border: 1px solid rgba(255, 255, 255, 0.1);
+    /* border-radius: 10px; */
+}
+#grid-cell-0 {
+    border-top-left-radius: 8px;
+}
+#grid-cell-9 {
+    border-top-right-radius: 8px;
+}
+#grid-cell-189 {
+    border-bottom-left-radius: 8px;
+}
+#grid-cell-199 {
+    border-bottom-right-radius: 8px;
 }
 
 .attackMeter {
     background: rgba(0, 0, 0, .35);
     border-radius: 10px;
-    border: 0.1px solid #FFFFFF;
-    height: 800px;
+    border: 2px solid #FFFFFF;
+    height: 740px;
     width: 40px;
 }
 
 .nextBox {
+    display: flex;
     background: rgba(0, 0, 0, .35);
     border-radius: 10px;
-    border: 0.1px solid #FFFFFF;
+    border: 2px solid #FFFFFF;
     height: 400px;
     width: 138px;
 }
