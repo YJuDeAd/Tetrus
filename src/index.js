@@ -271,6 +271,7 @@ let rowInterval = setInterval(()=>{
         currentColumn = 4;
         const tetrominoKeys = Object.keys(TETROMINOS);
         currentTetromino = TETROMINOS[tetrominoKeys[Math.floor(Math.random() * tetrominoKeys.length)]];
+        // color = generateRandomColor()    // Tried this didnt work
     }else{
         currentRow++
     }
