@@ -118,7 +118,7 @@ function canPlaceTetromino(tetromino, row, col) {
                     gridCol >= grid[0].length || // Outside right boundary
                     gridRow < 0 || // Outside top boundary
                     gridCol < 0 || // Outside left boundary
-                    grid[gridRow][gridCol] === 1 // Overlaps with filled cell
+                    grid[gridRow][gridCol] === 2 // Overlaps with filled cell
                 ) {
                     return false;
                 }
@@ -156,7 +156,7 @@ function canMoveDown() {
                 // Check bounds and collisions
                 if (
                     newRow >= grid.length || // Hits the bottom of the grid
-                    (grid[newRow][col] === 1) // Hits another filled cell
+                    (grid[newRow][col] === 2) // Hits another filled cell
                 ) {
                     return false;
                 }
@@ -179,7 +179,7 @@ function canMoveLeft() {
                 // Check bounds and collisions
                 if (
                     newCol < 0 || // Hits the left edge of the grid
-                    grid[currentRow + i][newCol] === 1 // Hits another filled cell
+                    grid[currentRow + i][newCol] === 2 // Hits another filled cell
                 ) {
                     return false; // Cannot move left
                 }
@@ -202,7 +202,7 @@ function canMoveRight() {
                 // Check bounds and collisions
                 if (
                     newCol >= grid[0].length || // Hits the right edge of the grid
-                    grid[currentRow + i][newCol] === 1 // Hits another filled cell
+                    grid[currentRow + i][newCol] === 2 // Hits another filled cell
                 ) {
                     return false; // Cannot move right
                 }
@@ -224,6 +224,7 @@ function fixTetromino(){
                 const col = currentColumn + j;
 
                 grid[row][col] = currentTetromino[i][j] ;
+                grid[row][col] = 2;  
             }
         }
     }
@@ -236,7 +237,7 @@ function updateDOM() {
     for (let i = 0; i < 20; i++) {
         for (let j = 0; j < 10; j++) {
             const index = i * 10 + j;
-            DOMgrid[index].style.backgroundColor = grid[i][j] === 1 ? color : ''; // Apply color or clear
+            DOMgrid[index].style.backgroundColor = grid[i][j] === 1 ? color : grid[i][j] === 2 ? 'gray' : '';; // Apply color or clear
         }
     }
 }
@@ -272,13 +273,16 @@ let rowInterval = setInterval(()=>{
         const tetrominoKeys = Object.keys(TETROMINOS);
         currentTetromino = TETROMINOS[tetrominoKeys[Math.floor(Math.random() * tetrominoKeys.length)]];
         // color = generateRandomColor()    // Tried this didnt work
-    }else{
+    } else{
         currentRow++
     }
 },500)
 
 let intervalUpdate = setInterval(()=>{
     // **Initialization**
+    // if(!canPlaceTetromino(currentTetromino, 0, 4)) {
+    //     location.reload();
+    // } 
     placeTetromino(currentTetromino , currentRow , currentColumn); // Place the initial Tetromino
     updateDOM(); // Update the DOM to reflect the grid
     clearTetromino(currentTetromino)
