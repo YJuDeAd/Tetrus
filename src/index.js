@@ -230,6 +230,39 @@ function fixTetromino(){
     }
 }
 
+// Row clearing and shifting logic
+function clearCompleteRows() {
+    for (let i = grid.length - 1; i >= 0; i--) {
+        let isRowComplete = true;
+        
+        // Check if row is complete
+        for (let j = 0; j < grid[0].length; j++) {
+            if (grid[i][j] !== 2) {  // Check for fixed blocks only
+                isRowComplete = false;
+                break;
+            }
+        }
+        
+        // If row is complete, shift all rows above down
+        if (isRowComplete) {
+            // Shift all rows above down by one
+            for (let row = i; row > 0; row--) {
+                for (let col = 0; col < grid[0].length; col++) {
+                    grid[row][col] = grid[row - 1][col];
+                }
+            }
+            
+            // Clear the top row
+            for (let col = 0; col < grid[0].length; col++) {
+                grid[0][col] = 0;
+            }
+            
+            // Since we shifted rows down, we need to check the same row index again
+            i++;
+        }
+    }
+}
+
 
 // **DOM Updates**
 
@@ -283,8 +316,28 @@ let intervalUpdate = setInterval(()=>{
     // if(!canPlaceTetromino(currentTetromino, 0, 4)) {
     //     location.reload();
     // } 
-    placeTetromino(currentTetromino , currentRow , currentColumn); // Place the initial Tetromino
-    updateDOM(); // Update the DOM to reflect the grid
-    clearTetromino(currentTetromino)
+    placeTetromino(currentTetromino, currentRow, currentColumn);
+    updateDOM();
+    clearTetromino(currentTetromino);
     
+    clearCompleteRows();  
+    // for(let i = 19 ; i >= 0 ; i--){
+    //     let rowComplete = 1;
+
+    //     for(let j = 9 ; j >= 0 ; j--){
+    //         if(grid[i][j] === 0 || grid[i][j] === 1){
+    //             rowComplete = 0;
+    //         }
+    //     }
+
+    //     if(rowComplete){
+    //         for(let k = 19 ; k >= 0 ; k++){
+    //             for(let l = 9 ; l >= 0 ; l++){
+    //                 grid[i][j] = grid[i-1][j];
+    //             }
+    //         }
+    //         i--;
+    //     }
+    // }
+
 },1)
