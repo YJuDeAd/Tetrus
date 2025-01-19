@@ -329,23 +329,5 @@ let intervalUpdate = setInterval(()=>{
     clearTetromino(currentTetromino);
     
     clearCompleteRows();  
-    // for(let i = 19 ; i >= 0 ; i--){
-    //     let rowComplete = 1;
-
-    //     for(let j = 9 ; j >= 0 ; j--){
-    //         if(grid[i][j] === 0 || grid[i][j] === 1){
-    //             rowComplete = 0;
-    //         }
-    //     }
-
-    //     if(rowComplete){
-    //         for(let k = 19 ; k >= 0 ; k++){
-    //             for(let l = 9 ; l >= 0 ; l++){
-    //                 grid[i][j] = grid[i-1][j];
-    //             }
-    //         }
-    //         i--;
-    //     }
-    // }
 
 },1)
