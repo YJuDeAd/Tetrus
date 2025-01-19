@@ -54,7 +54,10 @@ let currentColumn = currentPos[1];
 
 const TETROMINOS = {
     I: [
-        [1, 1, 1, 1]
+        [0, 0, 0, 0],
+        [1, 1, 1, 1],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0]
     ],
     O: [
         [1, 1],
@@ -62,23 +65,28 @@ const TETROMINOS = {
     ],
     T: [
         [0, 1, 0],
-        [1, 1, 1]
+        [1, 1, 1],
+        [0, 0, 0]
     ],
     S: [
         [0, 1, 1],
-        [1, 1, 0]
+        [1, 1, 0],
+        [0, 0, 0]
     ],
     Z: [
         [1, 1, 0],
-        [0, 1, 1]
+        [0, 1, 1],
+        [0, 0, 0]
     ],
     J: [
         [1, 0, 0],
-        [1, 1, 1]
+        [1, 1, 1],
+        [0, 0, 0]
     ],
     L: [
         [0, 0, 1],
-        [1, 1, 1]
+        [1, 1, 1],
+        [0, 0, 0]
     ]
 };
 
@@ -212,7 +220,7 @@ function canMoveRight() {
     return true; // Can move right
 }
 
-
+// Fixes the Tetromino in position
 function fixTetromino(){
     const len = currentTetromino.length;
     const width = currentTetromino[0].length;
@@ -252,10 +260,10 @@ function clearCompleteRows() {
                 }
             }
             
-            // Clear the top row
-            for (let col = 0; col < grid[0].length; col++) {
-                grid[0][col] = 0;
-            }
+            // // Clear the top row
+            // for (let col = 0; col < grid[0].length; col++) {
+            //     grid[0][col] = 0;
+            // }
             
             // Since we shifted rows down, we need to check the same row index again
             i++;
@@ -307,7 +315,7 @@ let rowInterval = setInterval(()=>{
         currentTetromino = TETROMINOS[tetrominoKeys[Math.floor(Math.random() * tetrominoKeys.length)]];
         // color = generateRandomColor()    // Tried this didnt work
     } else{
-        currentRow++
+        // currentRow++
     }
 },500)
 
