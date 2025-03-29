@@ -110,3 +110,35 @@ body {
     justify-content: center;
     font-weight: bold;
 }
+        /* Tetromino Colors */
+.grid-cell.filled-I {
+    background-color: #00f;
+}
+
+.grid-cell.filled-O {
+    background-color: #ff0;
+}
+
+.grid-cell.filled-T {
+    background-color: #f0f;
+}
+
+.grid-cell.filled-S {
+    background-color: #0f0;
+}
+
+.grid-cell.filled-Z {
+    background-color: #f00;
+}
+
+.grid-cell.filled-J {
+    background-color: #00ffff;
+}
+
+.grid-cell.filled-L {
+    background-color: #ffa500;
+}
+
+.grid-cell.fixed {
+    background-color: gray;
+}
